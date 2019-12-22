@@ -1,0 +1,24 @@
+{
+  "name": "nulled",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest"
+  },
+  "jest": {
+    "testRegex": "./src/.*.test.js$",
+    "rootDir": "."
+  },
+  "keywords": [],
+  "author": "Mikita Melnikau<usesa@yandex.com>",
+  "license": "ISC",
+  "dependencies": {
+    "finalhandler": "^1.1.2"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
