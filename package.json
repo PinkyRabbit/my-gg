@@ -5,7 +5,8 @@
   "main": "app.js",
   "private": true,
   "scripts": {
-    "start": "node app.js",
+    "start": "yarn pm2 startOrRestart ./pm2.json",
+    "start:dev": "node app/index.js",
     "test": "jest"
   },
   "jest": {
@@ -16,9 +17,11 @@
   "author": "Mikita Melnikau<usesa@yandex.com>",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "finalhandler": "^1.1.2"
   },
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "pm2": "^4.2.1"
   }
 }
