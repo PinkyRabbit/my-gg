@@ -5,7 +5,8 @@
   "main": "app/index.js",
   "private": true,
   "scripts": {
-    "start": "node app/index.js",
+    "start": "yarn pm2 startOrRestart ./pm2.json",
+    "start:dev": "node app/index.js",
     "lint": "node_modules/.bin/eslint ./app/**/*.js",
     "test": "jasmine --config=./jasmine.json"
   },
@@ -13,8 +14,7 @@
   "author": "Mikita Melnikau<usesa@yandex.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "finalhandler": "^1.1.2"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

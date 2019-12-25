@@ -8,7 +8,7 @@ app.get('/user', (req, res) => {
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-// const port = 3000;
-// app.listen(port, () => console.log(`App listening on port ${port}!`));
+const port = 3000;
+app.listen(port, () => console.log(`App listening on port ${port}!`));
 
 module.exports = app;

@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name": "app",
+      "script": "app/index.js",
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "watch": false,
+      "instances": 0,
+      "ignore_watch": ["node_modules"],
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "node_args": ["--max-http-header-size=40960"]
+    }
+  ]
+}
