@@ -1,0 +1,30 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= page && page.title ?  'hack-it-up.ru — ' + page.title : 'hack-it-up.ru *_*'
+    if page && page.description
+      meta(name="description" content=page.description)
+    if page && page.description
+      meta(name="keywords" content=page.keywords)
+    link(rel="shortcut icon" href="/favicon.png")
+    link(rel="stylesheet" href="/css/bootstrap.min.css")
+    link(rel="stylesheet" href="/css/styles.css")
+    script(src='/js/jquery-1.12.js')
+    script(src='/js/bootstrap.min.js')
+  body
+    header(class="container" id="header")
+      if page && page.mainImage
+        img(class="logo" src=page.mainImage alt=page.title || "")
+      else
+        img(class="logo" src='/images/standard/no-image.jpg' alt=page && page.title || "")
+      h1= page && page.title || "Hello world!"
+    div(class="container" id="content")
+      div(class="raw")
+        main(class="col-xs-12 col-sm-8 col-md-9")
+          block content
+        aside(class="col-xs-12 col-sm-4 col-md-3")
+          block sidebar
+

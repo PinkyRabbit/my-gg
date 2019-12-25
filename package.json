@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "yarn pm2 startOrRestart ./pm2.json",
-    "start:dev": "node app/index.js",
+    "start:dev": "nodemon app/index.js",
     "lint": "node_modules/.bin/eslint ./app/**/*.js",
     "test": "jasmine --config=./jasmine.json"
   },
@@ -14,8 +14,13 @@
   "author": "Mikita Melnikau<usesa@yandex.com>",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.7.4",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "http-errors": "^1.7.3",
+    "pug": "^2.0.4",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
