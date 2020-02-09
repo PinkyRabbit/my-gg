@@ -17,6 +17,7 @@ describe('base url tests', () => {
 
         expect(text).toContain('<img class="logo" src="/images/standard/404.jpg" alt="Страница не существует!">');
         expect(text).toContain('<title>Упс... — hack-it-up.ru</title>');
+        expect(text).not.toContain('<pre>');
         done();
       });
   });

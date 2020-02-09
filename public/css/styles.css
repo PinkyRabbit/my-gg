@@ -10,6 +10,21 @@ header {
   padding: 0 !important;
 }
 
+footer .container{
+  text-align: center;
+  background-color: #40043d;
+  color: #f2f2f2;
+  padding: 15px;
+}
+
+footer a {
+  color: #fba9fb
+}
+footer a:hover,
+footer a:focus {
+  color: #a9befb
+}
+
 #content {
   background: #ffffff;
 }
@@ -25,6 +40,14 @@ h1 {
   padding: 10px 30px;
   text-transform: capitalize;
   margin: 0;
+}
+
+a {
+  color: #eb27fd
+}
+a:hover,
+a:focus {
+  color: #fba9fb
 }
 
 .logo {

@@ -12,6 +12,10 @@ const errorHandler = (err, req, res, next) => {
     err = createError(500, 'Unknown server error');
   }
 
+  if (err.stack && process.env.NODE_ENV !== 'development') {
+    delete err.stack;
+  }
+
   seo.h1 = err.status === 404 ? 'Страница не существует!' : `Ошибка ${err.status}`;
   return res.status(err.status).render('error', { seo, error: err });
 };

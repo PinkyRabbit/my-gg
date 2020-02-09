@@ -3,6 +3,8 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 
+require('./db');
+
 const { initMiddleware } = require('./middleware');
 const initRoutes = require('./routes');
 
