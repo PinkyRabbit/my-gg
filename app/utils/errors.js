@@ -2,23 +2,18 @@ const createError = require('http-errors');
 
 // eslint-disable-next-line no-unused-vars
 const errorHandler = (err, req, res, next) => {
-  const page = {
-    title: 'Ошибка',
-    h1: 'Страница не существует!',
+  const seo = {
+    title: 'Упс...',
     description: 'Страница не существует или была перемещена. Попробуйте поискать её на сайте в другом месте.',
     mainImage: '/images/standard/404.jpg',
   };
-  if (process.env.NODE_ENV === 'production') {
-    const err404 = createError(404, 'Not Found');
-    return res.status(404).render('errorPage', { page, error: err404 });
-  }
 
   if (!err || !err.status) {
     err = createError(500, 'Unknown server error');
   }
 
-  page.h1 = `Ошибка ${err.status}`;
-  return res.status(err.status).render('errorPage', { page, error: err });
+  seo.h1 = err.status === 404 ? 'Страница не существует!' : `Ошибка ${err.status}`;
+  return res.status(err.status).render('error', { seo, error: err });
 };
 
 const make404 = (req, res, next) => next(createError(404, 'Not Found'));

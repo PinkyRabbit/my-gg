@@ -4,11 +4,11 @@ html(lang="ru")
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    title= page && page.title ?  'hack-it-up.ru — ' + page.title : 'hack-it-up.ru *_*'
-    if page && page.description
-      meta(name="description" content=page.description)
-    if page && page.description
-      meta(name="keywords" content=page.keywords)
+    title= seo && seo.title ?  seo.title + ' — hack-it-up.ru' : 'hack-it-up.ru *_*'
+    if seo && seo.description
+      meta(name="description" content=seo.description)
+    if seo && seo.description
+      meta(name="keywords" content=seo.keywords)
     link(rel="shortcut icon" href="/favicon.png")
     link(rel="stylesheet" href="/css/bootstrap.min.css")
     link(rel="stylesheet" href="/css/styles.css")
@@ -16,11 +16,11 @@ html(lang="ru")
     script(src='/js/bootstrap.min.js')
   body
     header(class="container" id="header")
-      if page && page.mainImage
-        img(class="logo" src=page.mainImage alt=page.title || "")
+      if seo && seo.mainImage
+        img(class="logo" src=seo.mainImage alt=seo && seo.h1 || "")
       else
-        img(class="logo" src='/images/standard/no-image.jpg' alt=page && page.title || "")
-      h1= page && page.title || "Hello world!"
+        img(class="logo" src='/images/standard/no-image.jpg' alt="default image")
+      h1= seo && seo.h1 || "Неизвестная страничка"
     div(class="container" id="content")
       div(class="raw")
         main(class="col-xs-12 col-sm-8 col-md-9")
