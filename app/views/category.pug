@@ -1,0 +1,31 @@
+//- category.pug
+extends layout.pug
+
+block content
+  if items
+    each post in items
+      div.post
+        h2
+          a(href=`${post.category.slug}/${post.slug}` title=post.h1)
+            i.fa.fa-github(aria-hidden="true")
+            |  #{post.h1}
+        a(href=`${post.category.slug}/${post.slug}` rel="nofollow")
+          if post.postimage
+            img.img-responsive.img-thumbnail(src=post.postimage alt=post.title)
+          else
+            img.img-responsive.img-thumbnail(src="/images/standart/no-image.jpg" alt=post.title)
+        p.description #{post.description}
+        ol.breadcrumb
+          li
+            span.glyphicon.glyphicon-calendar(aria-hidden="true")
+            |  #{post.updatedAt}
+          li
+            span.glyphicon.glyphicon-folder-open(aria-hidden="true")
+            |  
+            a(href='/' + post.category.slug title=post.category.name)
+              | #{post.category.name}
+    if pagination
+      | !{pagination}
+  else
+    h2 Статьи не найдены :(
+    p Извините, статьи пока что не найдены. Возможно они скоро появятся на сайте. Зах

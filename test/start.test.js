@@ -13,8 +13,28 @@ describe('base url tests', () => {
         if (err) {
           done(err);
         }
+        const { text } = body;
 
-        expect(body.text).toContain('<img class="logo" src="/images/standard/404.jpg" alt="Ошибка">');
+        expect(text).toContain('<img class="logo" src="/images/standard/404.jpg" alt="Страница не существует!">');
+        expect(text).toContain('<title>Упс... — hack-it-up.ru</title>');
+        done();
+      });
+  });
+
+  it('should return correct title and h1 on home page', (done) => {
+    request(app)
+      .get('/')
+      .expect(200)
+      .expect('Content-Type', /text/)
+      .end((err, body) => {
+        if (err) {
+          done(err);
+        }
+        const { text } = body;
+
+        expect(text).toContain('<img class="logo" src="/images/standard/main.jpg" alt="Hello, world!">');
+        expect(text).toContain('<title>Главная — hack-it-up.ru</title>');
+        expect(text).toContain('<h1>Hello, world!</h1>');
         done();
       });
   });
