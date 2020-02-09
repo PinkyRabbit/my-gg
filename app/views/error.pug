@@ -4,11 +4,12 @@ extends layout.pug
 block content
   p Такой страницы не существует
   p Если ты читаешь это сообщение, то ты попал на страницу, которая не существует. Давай разберёмся почему это могло произойти.
-  div(class="alert alert-success" role="alert")
-    p Status: 
-      strong #{error.status}
-      |  #{error.message}
-  pre= error.stack
+  if error.stack
+    div(class="alert alert-success" role="alert")
+      p Status: 
+        strong #{error.status}
+        |  #{error.message}
+    pre= error.stack
   h2 Возможные причины:
   ul
     li Вы вводили ссылку на страницу и сделали ошибку
