@@ -39,4 +39,23 @@ describe('base url tests', () => {
         done();
       });
   });
+
+
+  it('should return correct image csrf and captcha on login page', (done) => {
+    request(app)
+      .get('/login')
+      .expect(200)
+      .expect('Content-Type', /text/)
+      .end((err, body) => {
+        if (err) {
+          done(err);
+        }
+        const { text } = body;
+
+        expect(text).toContain('<img class="logo" src="/images/standard/login.jpg" alt="Дорога в эхо">');
+        expect(text).toContain('<div class="g-recaptcha" data-sitekey=');
+        expect(/value="[a-zA-Z0-9-]+"\s+name="_csrf"/m.test(text)).toBe(true);
+        done();
+      });
+  });
 });
