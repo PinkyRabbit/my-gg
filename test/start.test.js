@@ -54,7 +54,7 @@ describe('base url tests', () => {
 
         expect(text).toContain('<img class="logo" src="/images/standard/login.jpg" alt="Дорога в эхо">');
         expect(text).toContain('<div class="g-recaptcha" data-sitekey=');
-        expect(/value="[a-zA-Z0-9-]+"\s+name="_csrf"/m.test(text)).toBe(true);
+        expect(/value="[a-zA-Z0-9-_]+"\s+name="_csrf"/m.test(text)).toBe(true);
         done();
       });
   });
