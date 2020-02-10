@@ -4,15 +4,23 @@ $(document).ready(() => {
 
 function initPlusResize(func) {
   func();
-  $(window).on('resize', func).trigger('resize');
+  $(window).resize(func);
 }
 
 function fixContentHeight() {
-  var $header = $('header');
-  var $footer = $('footer');
+  console.log('function')
   var $content = $('#content');
-  var height = $(this).height() - $header.height() - $footer.height();
-  if (height > $footer.height()) {
-    $content.height(height);
+  $content.removeAttr('style');
+  var headerHeight = $('header').height() || 0;
+  var footerHeight = $('footer').height() || 0;
+  var contentHeight = $content.height() || 0;
+  var thisHeight = $(this).height();
+  if (thisHeight > headerHeight + footerHeight + contentHeight) {
+  console.log('can add')
+    var newHeight = thisHeight - headerHeight - footerHeight;
+  console.log('can footer')
+    if (newHeight > footerHeight) {
+      $content.height(newHeight);
+    }
   }
 }
