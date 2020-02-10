@@ -55,6 +55,25 @@ a:focus {
   width: 100%
 }
 
+.btn-warning {
+  background-color: #d78f77;
+  border-color: #da9881;
+}
+.btn-warning:hover,
+.btn-warning:focus{
+  background-color: #e29277;
+  border-color: #ca9d8e;
+}
+.btn-danger {
+  background-color: #9b4dca;
+  border: 0.1rem solid #9b4dca;
+}
+.btn-danger:hover,
+.btn-danger:focus{
+  background-color: #606c76;
+  border-color: #606c76;
+}
+
 @media(min-width: 1200px) {
   .container {
     width: 970px;

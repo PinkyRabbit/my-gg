@@ -24,10 +24,14 @@ html(lang="ru")
       h1= seo && seo.h1 || "Неизвестная страничка"
     div(class="container" id="content")
       div(class="raw")
-        main(class="col-xs-12 col-sm-8 col-md-9")
-          block content
-        aside(class="col-xs-12 col-sm-4 col-md-3")
-          block sidebar
+        if sidebar
+          main(class="col-xs-12 col-sm-8 col-md-9")
+            block content
+          aside(class="col-xs-12 col-sm-4 col-md-3")
+            block sidebar
+        else
+          div.col-xs-12#content
+            block content
     footer
       .container
         .row
@@ -35,3 +39,6 @@ html(lang="ru")
             | Copyright © 2017-20** ,
             a(href="https://github.com/PinkyRabbit" target="_blanc")
               |  Mikita Melnikau
+    if scripts
+      each src in scripts
+        script(src=src)

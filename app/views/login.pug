@@ -1,0 +1,21 @@
+//- login.pug
+extends layout.pug
+
+block content
+  div.row
+    div.col-xs-12.col-md-8.col-md-offset-2
+      div.jumbotron
+        h2 Привет!
+        em Мы с тобой – люди Темной Стороны, а там, откуда мы пришли, мы всего лишь гости, странные незнакомцы, которых кое-как терпят…
+        hr
+        from(method="post" action="/login")
+          input(type="hidden" value=csrfToken name="_csrf")
+          div.form-group
+            label(for="email") Email address
+            input(type="email" name="email" class="form-control" id="email" placeholder="Email" autocomplete="off")
+          div.form-group
+            label(for="password") Email address
+            input(type="password" name="password" class="form-control" id="password" placeholder="Password" autocomplete="off")
+          div.form-group
+            div.g-recaptcha(data-sitekey="6LfIQT4UAAAAAAEqLelVPTUASOC9Cdz4s_cr1ir8")
+          button.btn.btn-danger.btn-lg(type="submit") Войти
